@@ -1,8 +1,8 @@
 import express from "express";
-import publicRoutes from "./src/routes/publicRoutes.js";
-import privateRoute from "./src/routes/privateRoute.js";
+import publicRoutes from "./src/routes/publicRoutes";
+import privateRoute from "./src/routes/privateRoute";
 
-import auth from "./src/middleware/auth.js";
+import auth from "./src/middleware/auth";
 
 const app = express();
 app.use(express.json());

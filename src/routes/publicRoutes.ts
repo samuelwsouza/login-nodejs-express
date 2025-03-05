@@ -1,4 +1,4 @@
-import { Router } from "express";
+import { Request, Response, Router } from "express";
 import bcrypt from "bcrypt";
 import { PrismaClient } from "@prisma/client";
 import jwt from "jsonwebtoken";
@@ -9,7 +9,7 @@ const router = Router();
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
-router.post("/cadastro", async (req, res) => {
+router.post("/cadastro", async (req: Request, res: Response) => {
   try {
     const user = req.body;
 
@@ -34,7 +34,7 @@ router.post("/cadastro", async (req, res) => {
   }
 });
 
-router.post("/login", async (req, res) => {
+router.post("/login", async (req: Request, res: Response): Promise<any> => {
   try {
     const userInfo = req.body;
 
@@ -52,6 +52,7 @@ router.post("/login", async (req, res) => {
       return res.status(404).json({ message: "A senha não é a mesma" });
     }
 
+    const JWT_SECRET = process.env.JWT_SECRET || "chave-padrao-segura"; // verificacao pra n dar erro no JWT_SECRET
     const token = jwt.sign({ id: user.id }, JWT_SECRET, { expiresIn: "1h" });
 
     res.status(200).json(token);
