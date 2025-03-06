@@ -1,13 +1,11 @@
 {
   "compilerOptions": {
-    "target": "ES2020", // ou ESNext
-    "module": "CommonJS", // Certifique-se de que o módulo seja CommonJS
-    "moduleResolution": "node", // Resolução de módulos compatível com o Node.js
-    "esModuleInterop": true, // Permite importações CommonJS no estilo ESM
-    "skipLibCheck": true, // Ignorar checagem de tipo em bibliotecas
-    "forceConsistentCasingInFileNames": true // Consistência nos nomes de arquivos
+    "target": "ES2020",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
   },
-  "include": [
-    "src/**/*.ts" // Inclua os arquivos TypeScript
-  ]
+  "include": ["src/**/*.ts"]
 }
